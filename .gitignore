@@ -1,0 +1,19 @@
+.DS_Store
+.next
+.vscode
+out/
+node_modules
+yarn.lock
+package-lock.json
+
+# dev
+Scratch
+TODO
+REF
+
+# shit t/b deleted
+db.js
+mongooseConnect.js
+/models/
+/pages/fish.jsx
+orgREADME.md
