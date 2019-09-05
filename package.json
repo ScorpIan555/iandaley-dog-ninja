@@ -36,9 +36,5 @@
     "react-dom": "^16.5.2",
     "sass-loader": "^7.1.0",
     "tls": "0.0.1"
-  },
-  "devDependencies": {
-    "serverless-domain-manager": "^3.3.0",
-    "serverless-nextjs-plugin": "^2.3.4"
   }
 }
