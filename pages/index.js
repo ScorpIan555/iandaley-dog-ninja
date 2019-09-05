@@ -106,4 +106,6 @@ class IndexPage extends Component {
   }
 }
 
+IndexPage.getInitialProps = () => ({ blah: 'blah' });
+
 export default IndexPage;

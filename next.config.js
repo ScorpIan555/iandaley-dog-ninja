@@ -3,7 +3,12 @@ const glob = require('glob');
 
 module.exports = {
   target: 'serverless',
-  webpack: (config, { dev }) => {
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    console.log('webpack.config.buildId:::', buildId);
+    console.log('webpack.config.dev:::', dev);
+    console.log('webpack.config.isServer:::', isServer);
+    console.log('webpack.config.defaultLoaders:::', defaultLoaders);
+    console.log('webpack.config.webpack:::', webpack);
     config.module.rules.push(
       {
         test: /\.(css|scss)/,
@@ -38,6 +43,7 @@ module.exports = {
     return config;
   },
   exportPathMap: function(defaultPathMap) {
+    console.log('defaultPathMap:::', defaultPathMap);
     return {
       '/': { page: '/' }
     };

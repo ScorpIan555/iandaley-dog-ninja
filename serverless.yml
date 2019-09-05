@@ -11,21 +11,21 @@ provider:
 
 plugins:
   - serverless-nextjs-plugin
-  - serverless-domain-manager
+  # - serverless-domain-manager
 
 custom:
   name: iandaley-dot-ninja
   stage: ${opt:stage, self:provider.stage}
-  serverless-nextjs: # <- add here
+  serverless-nextjs:
     assetsBucketName: 'iandaley-dot-ninja-static-assets-${self:provider.stage}'
-  customDomain: # <- add here
-    domainName: '${self:provider.stage}.iandaley.ninja'
-    certificateName: '*.iandaley.ninja'
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+  # customDomain:
+  #   domainName: '${self:provider.stage}.iandaley.ninja'
+  #   certificateName: '*.iandaley.ninja'
+  #   basePath: ''
+  #   stage: ${self:provider.stage}
+  #   createRoute53Record: true
 
-package: # <- add here
+package:
   # exclude everything
   # page handlers are automatically included by the plugin
   exclude:
