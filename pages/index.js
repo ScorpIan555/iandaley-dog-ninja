@@ -3,10 +3,6 @@ import Head from 'next/head';
 import stylesheet from 'styles/main.scss';
 
 import { Header, Main, Footer } from '../components';
-// import Main from '../components/Main';
-// import Footer from '../components/Footer';
-// import db from '../db';
-// import DbConnect from '../components/DbConnect';
 
 class IndexPage extends Component {
   state = {
@@ -75,7 +71,7 @@ class IndexPage extends Component {
       >
         <div>
           <Head>
-            <title>Next.js Starter</title>
+            <title>YE BE WARNED!</title>
             <link
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i"
               rel="stylesheet"
