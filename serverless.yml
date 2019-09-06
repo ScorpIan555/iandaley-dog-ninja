@@ -5,25 +5,25 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
-  environment:
-    MONGO_URI: ${self:custom.environment.MONGO_URI}
-    # MONGO_PROD_URI: ${self:custom.environment.MONGO_URI}
+  # environment:
+  #   MONGO_URI: ${self:custom.environment.MONGO_URI}
+  # MONGO_PROD_URI: ${self:custom.environment.MONGO_URI}
 
 plugins:
   - serverless-nextjs-plugin
-  - serverless-domain-manager
+  # - serverless-domain-manager
 
 custom:
   name: iandaley-dot-ninja
   stage: ${opt:stage, self:provider.stage}
   serverless-nextjs:
     assetsBucketName: 'iandaley-dot-ninja-static-assets-${self:provider.stage}'
-  customDomain:
-    domainName: '${self:provider.stage}.iandaley.ninja'
-    certificateName: '*.iandaley.ninja'
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+  # customDomain:
+  #   domainName: '${self:provider.stage}.iandaley.ninja'
+  #   certificateName: '*.iandaley.ninja'
+  #   basePath: ''
+  #   stage: ${self:provider.stage}
+  #   createRoute53Record: true
 
 package:
   # exclude everything
