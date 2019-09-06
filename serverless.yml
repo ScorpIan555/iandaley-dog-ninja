@@ -11,7 +11,7 @@ provider:
 
 plugins:
   - serverless-nextjs-plugin
-  # - serverless-domain-manager
+  - serverless-domain-manager
 
 custom:
   name: iandaley-dot-ninja
