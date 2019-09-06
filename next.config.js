@@ -40,6 +40,9 @@ module.exports = {
         ]
       }
     );
+    config.node = {
+      fs: 'empty'
+    };
     return config;
   },
   exportPathMap: function(defaultPathMap) {

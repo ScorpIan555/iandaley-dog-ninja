@@ -15,7 +15,7 @@ const Header = props => (
           I am a Pirate Ninja from the Future here to build full-stack apps in
           the cloud and forewarn ye of the travails ahead.
         </p>
-        <p>Obligatory Arrr: ARRRRRRRRRRRRRRRR</p>
+        <p>Obligatory ARRRRRRRRRRRRRRRR</p>
       </div>
     </div>
     <nav>

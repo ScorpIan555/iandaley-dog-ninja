@@ -4,6 +4,8 @@ import stylesheet from 'styles/main.scss';
 
 import { Header, Main, Footer } from '../components';
 
+// import middleware from '../middlewares/useMiddleware';
+
 class IndexPage extends Component {
   state = {
     isArticleVisible: false,
@@ -17,6 +19,8 @@ class IndexPage extends Component {
     this.timeoutId = setTimeout(() => {
       this.setState({ loading: '' });
     }, 100);
+
+    // console.log('useMiddleware:::', middleware);
   }
 
   componentWillUnmount() {
