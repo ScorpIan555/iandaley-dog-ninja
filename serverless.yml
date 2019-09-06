@@ -3,7 +3,7 @@ service: iandaley-dot-ninja
 provider:
   name: aws
   runtime: nodejs10.x
-  stage: staging
+  stage: dev
   region: us-east-1
   # environment:
   #   MONGO_URI: ${self:custom.environment.MONGO_URI}
@@ -11,7 +11,7 @@ provider:
 
 plugins:
   - serverless-nextjs-plugin
-  - serverless-domain-manager
+  # - serverless-domain-manager
 
 custom:
   name: iandaley-dot-ninja
