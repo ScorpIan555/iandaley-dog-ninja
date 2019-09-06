@@ -27,13 +27,13 @@
     "mongodb": "^3.3.2",
     "mongoose": "^5.6.11",
     "net": "^1.0.2",
-    "next": "^7.0.0",
+    "next": "^9.0.5",
     "node-sass": "^4.9.3",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^0.5.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "sass-loader": "^7.1.0",
     "tls": "0.0.1"
   }
