@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import stylesheet from 'styles/main.scss';
-
 import { Header, Main, Footer } from '../components';
-
-// import middleware from '../middlewares/useMiddleware';
 
 class IndexPage extends Component {
   state = {
@@ -20,7 +17,7 @@ class IndexPage extends Component {
       this.setState({ loading: '' });
     }, 100);
 
-    // console.log('useMiddleware:::', middleware);
+    // console.log('useMiddleware:::', users);
   }
 
   componentWillUnmount() {

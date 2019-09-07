@@ -5,7 +5,7 @@ import faGem from '@fortawesome/fontawesome-free-regular/faGem';
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
-      {/*<span className="icon fa-diamond"></span>*/}
+      <span className="icon fa-diamond"></span>
       <FontAwesomeIcon icon={faGem} transform="grow-18" />
     </div>
     <div className="content">

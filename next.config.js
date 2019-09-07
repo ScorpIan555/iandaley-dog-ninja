@@ -41,7 +41,8 @@ module.exports = {
       }
     );
     config.node = {
-      fs: 'empty'
+      fs: 'empty',
+      dgram: 'empty'
     };
     return config;
   },

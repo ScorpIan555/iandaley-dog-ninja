@@ -1,22 +1,22 @@
 {
   "plugins": [
     [
-      "module-resolver", {
+      "module-resolver",
+      {
         "root": ["."],
         "alias": {
           "styles": "./styles"
         },
         "cwd": "babelrc"
-    }],
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["css$", "scss$"]
       }
     ]
+    // [
+    //   "wrap-in-js",
+    //   {
+    //     "extensions": ["css$", "scss$"]
+    //   }
+    // ]
   ],
-  "presets": [
-    "next/babel"
-  ],
+  "presets": ["next/babel"],
   "ignore": []
 }
