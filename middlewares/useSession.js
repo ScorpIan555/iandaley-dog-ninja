@@ -1,11 +1,17 @@
-import session from 'next-session';
+import session, { withSession } from 'next-session';
 import connectMongo from 'connect-mongo';
 
 const MongoStore = connectMongo(session);
 
+// console.log('useSession.MongoStore:::', MongoStore);
+
 const useSession = handler =>
-  session(handler, {
-    store: new MongoStore({ url: process.env.MONGODB_URI })
+  withSession(handler, {
+    store: new MongoStore({
+      url: 'mongodb://127.0.0.1:27017/test'
+    })
   });
+
+console.log('useSession.useSession:::');
 
 export default useSession;

@@ -1,46 +1,49 @@
-// Import Dependencies
-const url = require('url');
-const MongoClient = require('mongodb').MongoClient;
+import isEmail from 'validator/lib/isEmail';
+import * as argon2 from 'argon2';
+import useMiddleware from '../../middlewares/useMiddleware';
 
-// Create cached connection variable
-let cachedDb = null;
-
-// A function for connecting to MongoDB,
-// taking a single paramater of the connection string
-async function connectToDatabase(uri) {
-  // If the database connection is cached,
-  // use it instead of creating a new connection
-  if (cachedDb) {
-    return cachedDb;
+const handler = (req, res) => {
+  console.log('hit user.handler.req:::', req.body);
+  console.log('hit user.handler.res:::', res.statusCode);
+  if (req.method === 'POST') {
+    const { email, name, password } = req.body;
+    if (!isEmail(email)) {
+      return res.send({
+        status: 'error',
+        message: 'The email you entered is invalid.'
+      });
+    }
+    return req.db
+      .collection('users')
+      .countDocuments({ email })
+      .then(count => {
+        if (count) {
+          return Promise.reject(Error('The email has already been used.'));
+        }
+        return argon2.hash(password);
+      })
+      .then(hashedPassword =>
+        req.db.collection('users').insertOne({
+          email,
+          password: hashedPassword,
+          name
+        })
+      )
+      .then(user => {
+        req.session.userId = user.insertedId;
+        res.status(201).send({
+          status: 'ok',
+          message: 'User signed up successfully'
+        });
+      })
+      .catch(error =>
+        res.send({
+          status: 'error',
+          message: error.toString()
+        })
+      );
   }
-
-  // If no connection is cached, create a new one
-  const client = await MongoClient.connect(uri, { useNewUrlParser: true });
-
-  // Select the database through the connection,
-  // using the database path of the connection string
-  const db = await client.db(url.parse(uri).pathname.substr(1));
-
-  // Cache the database connection and return the connection
-  cachedDb = db;
-  return db;
-}
-
-// The main, exported, function of the endpoint,
-// dealing with the request and subsequent response
-module.exports = async (req, res) => {
-  // Get a database connection, cached or otherwise,
-  // using the connection string environment variable as the argument
-  const db = await connectToDatabase(process.env.MONGODB_URI);
-  console.log('db:::', db);
-
-  // Select the "users" collection from the database
-  const collection = await db.collection('users');
-
-  // Select the users collection from the database
-  const users = await collection.find({}).toArray();
-  console.log('users;::', users);
-
-  // Respond with a JSON string of all users in the collection
-  res.status(200).json({ users });
+  return res.status(405).end();
 };
+
+export default useMiddleware(handler);
