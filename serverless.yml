@@ -30,3 +30,8 @@ package:
   # page handlers are automatically included by the plugin
   exclude:
     - ./**
+
+# create resources w/ separate CloudFormation temmplates
+resources:
+  - ${file(utils/aws-resources/cognito-identity-pool.yml)}
+  - ${file(utils/aws-resources/cognito-user-pool.yml)}

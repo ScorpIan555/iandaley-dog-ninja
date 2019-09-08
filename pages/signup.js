@@ -10,9 +10,6 @@ const SignupPage = () => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = event => {
-    console.log('name:::', name);
-    console.log('email:::', email);
-    console.log('password:::', password);
     let body = {
       name,
       email,
@@ -31,7 +28,8 @@ const SignupPage = () => {
     fetch(url, options)
       .then(data => {
         console.log('data:::', data);
-        if (data.status === 'ok') {
+        if (data.status === 201) {
+          console.log('data.status === 200');
           redirectTo('/');
         }
       })
