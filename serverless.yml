@@ -35,3 +35,4 @@ package:
 resources:
   - ${file(utils/aws-resources/cognito-identity-pool.yml)}
   - ${file(utils/aws-resources/cognito-user-pool.yml)}
+  - ${file(utils/aws-resources/s3-bucket.yml)}

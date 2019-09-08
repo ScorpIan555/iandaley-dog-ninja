@@ -85,7 +85,7 @@ Resources:
                         - '$'
                         - '{cognito-identity.amazonaws.com:sub}/*'
 
-  # IAM role used for authenticated users
+  # IAM role used for unauthenticated users
   CognitoUnauthedRole:
     Type: AWS::IAM::Role
     Properties:
